@@ -1,5 +1,8 @@
+#lol haha
 addi $1, $0, 10
 addi $2, $0, 0
+
+#stupid, right
 addi $3, $0, 1
 loop: beq $1, $2, exit
 add $2, $2, $3

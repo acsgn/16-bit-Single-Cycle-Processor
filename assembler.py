@@ -24,17 +24,22 @@ except IOError:
     exit()
 
 labels = {}
+codes = []
+comment = 0
 for i in range(len(lines)):
-    words = lines[i].strip().split(" ")
+    line = lines[i].strip()
+    if line == '' or line.startswith('#'):
+        continue
+    words = line.split(" ")
     if not (1 < len(words) < 6):
         print("Syntax error at line", i+1)
         exit()
     if words[0].endswith(":"):
-        labels[words.pop(0)[:-1]] = i
-    lines[i] = words
+        labels[words.pop(0)[:-1]] = len(codes)
+    codes.append(words)
 
 binary = []
-for line in lines:
+for line in codes:
     if line[0].lower() == "add":
         dec = op * 0 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + rt * int(line[3][1:])
     elif line[0].lower() == "sub":
