@@ -3,8 +3,8 @@ addi $1, $0, 10
 addi $2, $0, 0
 
 #stupid, right
-addi $3, $0, 1
-loop: beq $1, $2, exit
-add $2, $2, $3
+addi $3, $0, 1#another comment
+loop: beq $1, $2, exit #this comment
+add $2, $2, $3      #commie
 j loop
 exit: add $4, $2, $1

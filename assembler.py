@@ -30,7 +30,7 @@ for i in range(len(lines)):
     line = lines[i].strip()
     if line == '' or line.startswith('#'):
         continue
-    words = line.split(" ")
+    words = line.split("#")[0].strip().split(" ")
     if not (1 < len(words) < 6):
         print("Syntax error at line", i+1)
         exit()
