@@ -1,18 +1,18 @@
-addi $1, $0, 0 #address of vector a in RAM
-addi $2, $0, 4 #address of vector b in RAM
-addi $3, $0, 8 #address of vector c in RAM
-addi $4, $0, 0 #sum = 0
-addi $5, $0, 0 #while loop variable i
-addi $6, $0, 4 #while loop contant 4
-loop: beq $5, $6, exit
-add $7, $1, $5 #address of a[i]
-lw $7, 0($7) #a[i]
-add $8, $2, $5 #address of b[i]
-lw $8, 0($8) #b[i]
-add $9, $7, $8 #a[i] + b[i]
-sll $9, $9, 1 #2 * (a[i] + b[i])
-add $10, $3, $5 #address of c[i]
-sw $9, 0($10) # c[i] = 2 * (a[i] + b[i])
-addi $5, $5, 1 # i = i + 1
+addi $1, $0, 0         # address of vector a in RAM
+addi $2, $0, 4         # address of vector b in RAM
+addi $3, $0, 8         # address of vector c in RAM
+addi $4, $0, 0         # sum = 0
+addi $5, $0, 0         # loop variable i
+addi $6, $0, 4         # loop contant 4
+loop: beq $5, $6, exit # if i == 4 goto exit
+add $7, $1, $5         # address of a[i]
+lw $7, 0($7)           # a[i]
+add $8, $2, $5         # address of b[i]
+lw $8, 0($8)           # b[i]
+add $9, $7, $8         # a[i] + b[i]
+sll $9, $9, 1          # 2 * (a[i] + b[i])
+add $10, $3, $5        # address of c[i]
+sw $9, 0($10)          # c[i] = 2 * (a[i] + b[i])
+addi $5, $5, 1         # i = i + 1
 j loop
-exit: addi $11, $0, 1
+exit: addi $11, $0, 1  # Does not serve any purpose
