@@ -35,7 +35,7 @@ for i in range(len(lines)):
         print("Syntax error at line", i+1)
         exit()
     if words[0].endswith(":"):
-        labels[words.pop(0)[:-1]] = len(codes)
+        labels[words.pop(0)[:-1]] = len(codes) -1
     codes.append(words)
 
 binary = []
@@ -65,13 +65,13 @@ for line in codes:
         dec = op * 10 + rt * int(line[1][1:-1]) + rs * int(word[1][1:-1]) + int(word[0])
     elif line[0].lower() == "sw":
         word = line[2].split("(")
-        dec = op * 11 + rs * int(line[1][1:-1]) + rt * int(word[1][1:-1]) + int(word[0])
+        dec = op * 11 + rt * int(line[1][1:-1]) + rs * int(word[1][1:-1]) + int(word[0])
     elif line[0].lower() == "beq":
         dec = op * 12 + rs * int(line[1][1:-1]) + rt * int(line[2][1:-1]) + labels[line[3].lower()] - len(binary)
     elif line[0].lower() == "blez":
         dec = op * 12 + rs * int(line[1][1:-1]) + labels[line[3].lower()] - len(binary)
     elif line[0].lower() == "j":
-        dec = op * 14 + labels[line[1].lower()]
+        dec = op * 14 + labels[line[1].lower()] + 1
     elif line[0].lower() == "adds":
         dec = op * 15 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + rt * int(line[3][1:])
     else:
