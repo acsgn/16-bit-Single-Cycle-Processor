@@ -51,7 +51,7 @@ for line in codes:
     elif line[0].lower() == "or":
         dec = op * 4 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + rt * int(line[3][1:])
     elif line[0].lower() == "addi":
-        dec = op * 5 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + int(line[3])
+        dec = op * 5 + rt * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + int(line[3])
     elif line[0].lower() == "sll":
         dec = op * 6 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + shamt * int(line[3])
     elif line[0].lower() == "slt":
@@ -62,10 +62,10 @@ for line in codes:
         dec = op * 9 + rd * int(line[1][1:])
     elif line[0].lower() == "lw":
         word = line[2].split("(")
-        dec = op * 10 + rd * int(line[1][1:-1]) + rs * int(word[1][1:-1]) + int(word[0])
+        dec = op * 10 + rt * int(line[1][1:-1]) + rs * int(word[1][1:-1]) + int(word[0])
     elif line[0].lower() == "sw":
         word = line[2].split("(")
-        dec = op * 11 + rs * int(line[1][1:-1]) + rd * int(word[1][1:-1]) + int(word[0])
+        dec = op * 11 + rs * int(line[1][1:-1]) + rt * int(word[1][1:-1]) + int(word[0])
     elif line[0].lower() == "beq":
         dec = op * 12 + rs * int(line[1][1:-1]) + rt * int(line[2][1:-1]) + labels[line[3].lower()] - len(binary)
     elif line[0].lower() == "blez":
