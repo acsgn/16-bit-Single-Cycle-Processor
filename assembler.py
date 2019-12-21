@@ -73,7 +73,7 @@ for line in codes:
     elif line[0].lower() == "j":
         dec = op * 14 + labels[line[1].lower()] + 1
     elif line[0].lower() == "adds":
-        dec = op * 15 + rd * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + rt * int(line[3][1:])
+        dec = op * 15 + rt * int(line[1][1:-1]) + rs * int(line[2][1:-1]) + int(line[3])
     else:
         print("Unknown operation on line", len(binary))
         exit()
