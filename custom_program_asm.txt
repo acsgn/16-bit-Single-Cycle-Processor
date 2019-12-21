@@ -1,0 +1,21 @@
+# This program adds a constant value
+# to an array and saves it back
+
+addi $1, $0, 0         # address of vector a in RAM
+addi $5, $0, 0         # loop variable i
+addi $6, $0, 4         # loop contant 6
+loop: beq $5, $6, exit # if i == 6 goto exit
+add $7, $1, $5         # address of a[i]
+lw $8, 0($7)           # a[i]
+adds $7, $8, 10        # a[i] = a[i] + 10
+addi $5, $5, 1         # i = i + 1
+j loop
+exit: addi $9, $0, 1  # Does not serve any purpose
+
+# DATA
+
+# 0 : FFF6;
+# 4 : FFFB;
+# 8 : 0000;
+# c : 0005;
+# 10: 000a;
