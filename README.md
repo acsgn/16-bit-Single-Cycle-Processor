@@ -1,6 +1,6 @@
 # 16-bit-Single-Cycle-Processor
 
-Designed a single cycle MIPS-alike processor with 32-bit word and 16-bit data sizes using [Logisim][1] for COMP303 - Computer Architecture course taught in [Koç University][2]
+Designed a single cycle MIPS-alike processor with 32-bit word and 16-bit data size using [Logisim][1] as a term project for COMP303 - Computer Architecture course taught in [Koç University][2]
 
 ## Instruction set
 
